@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Control de Letras</string>
     <string name="titulo">Crear Letra</string>
+    <string name="registrar">Registro de Letra</string>
     <string name="editar">Editar Letra</string>
     <string name="btn_editar">EDITAR LETRA</string>
     <string name="eliminar">Eliminar Letra</string>

@@ -18,27 +18,12 @@
 
 
     <TextView
-        android:id="@+id/tvLetra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:text="Letra"
-        android:textAlignment="viewStart"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tvSerieLetra"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvSerieLetra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:text="Serie"
-        app:layout_constraintStart_toEndOf="@+id/tvLetra"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -70,36 +55,36 @@
         android:layout_marginTop="5dp"
         android:text="Razón Social"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLetra" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSerieLetra" />
 
     <TextView
         android:id="@+id/tvfecEmisionLetra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Fecha Emisión"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvCorrelativoLetra"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="dd/mm/aaaa"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tvrazonSocialLetra" />
 
     <TextView
         android:id="@+id/tvnumUnicoLetra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="Numero Unico"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvrazonSocialLetra" />
+        app:layout_constraintEnd_toStartOf="@+id/btnEditar"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvfecVencimientoLetra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Fecha Vencimiento"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.632"
-        app:layout_constraintStart_toEndOf="@+id/tvnumUnicoLetra"
+        android:layout_marginEnd="8dp"
+        android:text="dd/mm/aaaa"
+        app:layout_constraintEnd_toStartOf="@+id/btnEliminar"
         app:layout_constraintTop_toBottomOf="@+id/tvrazonSocialLetra" />
 
     <ImageButton
@@ -107,7 +92,7 @@
         android:layout_width="33dp"
         android:layout_height="33dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_editar"
@@ -117,12 +102,31 @@
         android:id="@+id/btnEliminar"
         android:layout_width="33dp"
         android:layout_height="33dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_delete"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Emisión:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvrazonSocialLetra" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="Vencimiento:"
+        app:layout_constraintEnd_toStartOf="@+id/tvfecVencimientoLetra"
+        app:layout_constraintTop_toBottomOf="@+id/tvrazonSocialLetra" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
