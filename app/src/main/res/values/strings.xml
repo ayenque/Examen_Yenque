@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Examen_Yenque</string>
+    <string name="app_name">Control de Letras</string>
+    <string name="titulo">Control de Letras</string>
 </resources>
