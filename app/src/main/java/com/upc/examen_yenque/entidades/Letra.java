@@ -10,11 +10,11 @@ public class Letra {
     private int ruc;
     private String razonSocial;
     private String numUnico;
-    private Date fecEmision;
-    private Date fecVencimiento;
+    private String fecEmision;
+    private String fecVencimiento;
     private String comentario;
 
-    public Letra(String serie, int correlativo, int ruc, String razonSocial, String numUnico, Date fecEmision, Date fecVencimiento, String comentario) {
+    public Letra(String serie, int correlativo, int ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
         this.serie = serie;
         this.correlativo = correlativo;
         this.ruc = ruc;
@@ -25,7 +25,7 @@ public class Letra {
         this.comentario = comentario;
     }
 
-    public Letra(int id, String serie, int correlativo, int ruc, String razonSocial, String numUnico, Date fecEmision, Date fecVencimiento, String comentario) {
+    public Letra(int id, String serie, int correlativo, int ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
         this.id = id;
         this.serie = serie;
         this.correlativo = correlativo;
@@ -36,7 +36,6 @@ public class Letra {
         this.fecVencimiento = fecVencimiento;
         this.comentario = comentario;
     }
-
 
     public int getId() {
         return id;
@@ -86,19 +85,19 @@ public class Letra {
         this.numUnico = numUnico;
     }
 
-    public Date getFecEmision() {
+    public String getFecEmision() {
         return fecEmision;
     }
 
-    public void setFecEmision(Date fecEmision) {
+    public void setFecEmision(String fecEmision) {
         this.fecEmision = fecEmision;
     }
 
-    public Date getFecVencimiento() {
+    public String getFecVencimiento() {
         return fecVencimiento;
     }
 
-    public void setFecVencimiento(Date fecVencimiento) {
+    public void setFecVencimiento(String fecVencimiento) {
         this.fecVencimiento = fecVencimiento;
     }
 
