@@ -10,28 +10,31 @@ public class Letra {
     private String ruc;
     private String razonSocial;
     private String numUnico;
+    private double nimporte;
     private String fecEmision;
     private String fecVencimiento;
     private String comentario;
 
-    public Letra(String serie, int correlativo, String ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
+    public Letra(String serie, int correlativo, String ruc, String razonSocial, String numUnico, double nimporte, String fecEmision, String fecVencimiento, String comentario) {
         this.serie = serie;
         this.correlativo = correlativo;
         this.ruc = ruc;
         this.razonSocial = razonSocial;
         this.numUnico = numUnico;
+        this.nimporte = nimporte;
         this.fecEmision = fecEmision;
         this.fecVencimiento = fecVencimiento;
         this.comentario = comentario;
     }
 
-    public Letra(int id, String serie, int correlativo, String ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
+    public Letra(int id, String serie, int correlativo, String ruc, String razonSocial, String numUnico, double nimporte, String fecEmision, String fecVencimiento, String comentario) {
         this.id = id;
         this.serie = serie;
         this.correlativo = correlativo;
         this.ruc = ruc;
         this.razonSocial = razonSocial;
         this.numUnico = numUnico;
+        this.nimporte = nimporte;
         this.fecEmision = fecEmision;
         this.fecVencimiento = fecVencimiento;
         this.comentario = comentario;
@@ -83,6 +86,14 @@ public class Letra {
 
     public void setNumUnico(String numUnico) {
         this.numUnico = numUnico;
+    }
+
+    public double getNimporte() {
+        return nimporte;
+    }
+
+    public void setNimporte(double nimporte) {
+        this.nimporte = nimporte;
     }
 
     public String getFecEmision() {

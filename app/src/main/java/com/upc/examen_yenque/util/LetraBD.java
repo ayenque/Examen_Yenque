@@ -20,9 +20,10 @@ public class LetraBD extends SQLiteOpenHelper {
                         "(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
                         "serie TEXT NOT NULL,"+
                         "correlativo INTEGER NOT NULL,"+
-                        "ruc INTEGER NOT NULL,"+
+                        "ruc TEXT NOT NULL,"+
                         "razonSocial TEXT NOT NULL,"+
                         "numUnico TEXT NOT NULL,"+
+                        "nimporte DECIMAL NOT NULL,"+
                         "fecEmision TEXT NOT NULL,"+
                         "fecVencimiento TEXT NOT NULL,"+
                         "comentario TEXT NOT NULL);";

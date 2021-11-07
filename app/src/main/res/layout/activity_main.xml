@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginEnd="112dp"
         android:text="Correlativo"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
         android:drawableRight="@drawable/icono_correlativo"
         android:ems="10"
         android:hint="Ingrese el correlativo"
-        android:inputType="number"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingHorizontal="10dp"
         android:textSize="14sp"
@@ -140,16 +140,16 @@
 
     <EditText
         android:id="@+id/txtNumeroUnico"
-        android:layout_width="match_parent"
+        android:layout_width="170dp"
         android:layout_height="48dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/fondo_input"
-        android:ems="10"
-        android:textSize="14sp"
-        android:hint="Ingrese el numero único"
         android:drawableRight="@drawable/icono_numero_unico"
-        android:paddingHorizontal="10dp"
+        android:ems="10"
+        android:hint="Ingrese el numero único"
         android:inputType="textPersonName"
+        android:paddingHorizontal="10dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNumUnico" />
 
@@ -159,6 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Fecha de Emisión"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNumeroUnico" />
 
@@ -182,15 +183,16 @@
         android:id="@+id/tvFecVencimiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="8dp"
         android:text="Fecha de Vencimiento"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tvFecEmision"
         app:layout_constraintTop_toBottomOf="@+id/txtNumeroUnico" />
 
     <EditText
         android:id="@+id/dateFecVencimiento"
-        android:layout_width="170dp"
+        android:layout_width="184dp"
         android:layout_height="48dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/fondo_input"
@@ -209,6 +211,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Comentarios"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateFecEmision" />
 
@@ -242,5 +245,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtComentario" />
+
+    <TextView
+        android:id="@+id/tvnImporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="132dp"
+        android:text="Importe"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRazonSocial" />
+
+    <EditText
+        android:id="@+id/nImporte"
+        android:layout_width="184dp"
+        android:layout_height="48dp"
+        android:background="@drawable/fondo_input"
+        android:drawableRight="@drawable/icono_importe"
+        android:hint="Ingrese el importe"
+        android:textSize="14sp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvnImporte" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

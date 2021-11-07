@@ -45,6 +45,7 @@ public class DAOLetra {
             valores.put("ruc", letra.getRuc());
             valores.put("razonSocial",letra.getRazonSocial());
             valores.put("numUnico",letra.getNumUnico());
+            valores.put("nimporte",letra.getNimporte());
             valores.put("fecEmision",letra.getFecEmision());
             valores.put("fecVencimiento",letra.getFecVencimiento());
             valores.put("comentario",letra.getComentario());
@@ -75,6 +76,7 @@ public class DAOLetra {
             valores.put("ruc", letra.getRuc());
             valores.put("razonSocial",letra.getRazonSocial());
             valores.put("numUnico",letra.getNumUnico());
+            valores.put("nimporte",letra.getNimporte());
             valores.put("fecEmision",letra.getFecEmision());
             valores.put("fecVencimiento",letra.getFecVencimiento());
             valores.put("comentario",letra.getComentario());
@@ -135,9 +137,10 @@ public class DAOLetra {
                         c.getString(3),
                         c.getString(4),
                         c.getString(5),
-                        c.getString(6),
+                        c.getDouble(6),
                         c.getString(7),
-                        c.getString(8)
+                        c.getString(8),
+                        c.getString(9)
                 ));
             }
 

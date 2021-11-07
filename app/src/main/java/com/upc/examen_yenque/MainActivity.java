@@ -20,7 +20,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtSerie, nCorrelativo, nRUC, txtRazonSocial, txtNumeroUnico;
-    EditText dateFecEmision, dateFecVencimiento, txtComentario;
+    EditText nImporte, dateFecEmision, dateFecVencimiento, txtComentario;
     Button btnBoton;
     TextView txtTitulo;
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             String ruc = getIntent().getStringExtra("ruc");
             String razonSocial = getIntent().getStringExtra("razonSocial");
             String numUnico = getIntent().getStringExtra("numUnico");
+            double nimporte = Double.parseDouble(getIntent().getStringExtra("nimporte"));
             String fecEmision = getIntent().getStringExtra("fecEmision");
             String fecVencimiento = getIntent().getStringExtra("fecVencimiento");
             String comentario = getIntent().getStringExtra("comentario");
@@ -55,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
             txtSerie.setText(serie);
             nCorrelativo.setText(correlativo + "");
-            nRUC.setText(ruc + "");
+            nRUC.setText(ruc);
             txtRazonSocial.setText(razonSocial);
             txtNumeroUnico.setText(numUnico);
+            nImporte.setText(nimporte+"");
             dateFecEmision.setText(fecEmision);
             dateFecVencimiento.setText(fecVencimiento);
             txtComentario.setText(comentario);
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         nRUC = findViewById(R.id.nRUC);
         txtRazonSocial = findViewById(R.id.txtRazonSocial);
         txtNumeroUnico = findViewById(R.id.txtNumeroUnico);
+        nImporte = findViewById(R.id.nImporte);
         dateFecEmision = findViewById(R.id.dateFecEmision);
         dateFecVencimiento = findViewById(R.id.dateFecVencimiento);
         txtComentario = findViewById(R.id.txtComentario);
@@ -100,21 +103,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void capturarDatos(){
-        String serie = txtSerie.getText().toString();
-        int correlativo = Integer.parseInt(nCorrelativo.getText().toString());
-        String ruc = nRUC.getText().toString();
-        String razonSocial = txtRazonSocial.getText().toString();
-        String numUnico = txtNumeroUnico.getText().toString();
-        String fecEmision = dateFecEmision.getText().toString();
-        String fecVencimiento = dateFecVencimiento.getText().toString();
-        String comentario = txtComentario.getText().toString();
 
-       if(tipoRegistro){
-           letra = new Letra(serie,correlativo,ruc,razonSocial,numUnico,fecEmision,fecVencimiento,comentario);
-       }
-       else{
-           letra = new Letra(id,serie,correlativo,ruc,razonSocial,numUnico,fecEmision,fecVencimiento,comentario);
-       }
+            String serie = txtSerie.getText().toString();
+            int correlativo = Integer.parseInt(nCorrelativo.getText().toString());
+            String ruc = nRUC.getText().toString();
+            String razonSocial = txtRazonSocial.getText().toString();
+            String numUnico = txtNumeroUnico.getText().toString();
+            double nimporte = Double.parseDouble(nImporte.getText().toString());
+            String fecEmision = dateFecEmision.getText().toString();
+            String fecVencimiento = dateFecVencimiento.getText().toString();
+            String comentario = txtComentario.getText().toString();
+
+            if(tipoRegistro){
+                letra = new Letra(serie,correlativo,ruc,razonSocial,numUnico,nimporte,fecEmision,fecVencimiento,comentario);
+            }
+            else{
+                letra = new Letra(id,serie,correlativo,ruc,razonSocial,numUnico,nimporte,fecEmision,fecVencimiento,comentario);
+            }
 
     }
 
@@ -145,25 +150,34 @@ public class MainActivity extends AppCompatActivity {
         boolean flag = true;
 
         String serie = txtSerie.getText().toString();
-        String correlativo = nCorrelativo.getText().toString();
+
         String ruc = nRUC.getText().toString();
         String razonSocial = txtRazonSocial.getText().toString();
         String numUnico = txtNumeroUnico.getText().toString();
         String fecEmision = dateFecEmision.getText().toString();
         String fecVencimiento = dateFecVencimiento.getText().toString();
-        String comentario = txtComentario.getText().toString();
+
+        String correlativo = nCorrelativo.getText().toString();
+        String importe = nImporte.getText().toString();
 
         if (correlativo.equals("")){
-            nCorrelativo.setError("Dato Obligatorio");
+            nCorrelativo.setError("Ingrese el correlativo");
             flag = false;
+        }else{
+            int numcorrelativo = Integer.parseInt(nCorrelativo.getText().toString());
+            if(numcorrelativo<=0){
+                nCorrelativo.setError("Correlativo mayor a 0");
+                flag = false;
+            }
         }
+
 
         if (ruc.equals("")){
             nRUC.setError("El RUC es obligatorio");
             flag = false;
         }else{
-            if (ruc.length()<8){
-                nRUC.setError("El RUC debe tener 8 caracteres como mínimo");
+            if (ruc.length() != 11){
+                nRUC.setError("El RUC debe tener 11 caracteres");
                 flag = false;
             }
         }
@@ -187,6 +201,17 @@ public class MainActivity extends AppCompatActivity {
         if (fecVencimiento.equals("")){
             dateFecVencimiento.setError("Ingrese la fecha de Vencimiento");
             flag = false;
+        }
+
+        if (importe.equals("")){
+            nImporte.setError("Ingrese el importe");
+            flag = false;
+        }else{
+            double nimporte = Double.parseDouble(nImporte.getText().toString());
+            if(nimporte<=0){
+                nImporte.setError("El importe debe ser mayor a 0");
+                flag = false;
+            }
         }
 
         return flag;

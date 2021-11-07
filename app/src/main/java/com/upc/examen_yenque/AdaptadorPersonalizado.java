@@ -44,6 +44,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
         holder.tvCorrelativoLetra.setText(listaLetras.get(position).getCorrelativo()+"");
         holder.tvrazonSocialLetra.setText(listaLetras.get(position).getRazonSocial()+"");
         holder.tvnumUnicoLetra.setText(listaLetras.get(position).getNumUnico()+"");
+        holder.tvnImporteLetra.setText(listaLetras.get(position).getNimporte()+"");
         holder.tvfecEmisionLetra.setText(listaLetras.get(position).getFecEmision()+"");
         holder.tvfecVencimientoLetra.setText(listaLetras.get(position).getFecVencimiento()+"");
 
@@ -55,6 +56,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             intent.putExtra("ruc",listaLetras.get(position).getRuc()+"");
             intent.putExtra("razonSocial",listaLetras.get(position).getRazonSocial()+"");
             intent.putExtra("numUnico",listaLetras.get(position).getNumUnico()+"");
+            intent.putExtra("nimporte",listaLetras.get(position).getNimporte()+"");
             intent.putExtra("fecEmision",listaLetras.get(position).getFecEmision()+"");
             intent.putExtra("fecVencimiento",listaLetras.get(position).getFecVencimiento()+"");
             intent.putExtra("comentario",listaLetras.get(position).getComentario()+"");
@@ -105,8 +107,8 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
 
     public class MiHolder extends RecyclerView.ViewHolder {
 
-        TextView tvSerieLetra, tvCorrelativoLetra,tvrazonSocialLetra,tvnumUnicoLetra;
-        TextView tvfecEmisionLetra,tvfecVencimientoLetra;
+        TextView tvSerieLetra, tvCorrelativoLetra,tvrazonSocialLetra,tvnImporteLetra;
+        TextView tvnumUnicoLetra,tvfecEmisionLetra,tvfecVencimientoLetra;
         ImageButton btnEditar,btnEliminar;
 
         public MiHolder(@NonNull View itemView) {
@@ -115,6 +117,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             tvCorrelativoLetra =itemView.findViewById(R.id.tvCorrelativoLetra);
             tvrazonSocialLetra =itemView.findViewById(R.id.tvrazonSocialLetra);
             tvnumUnicoLetra =itemView.findViewById(R.id.tvnumUnicoLetra);
+            tvnImporteLetra =itemView.findViewById(R.id.tvnImporteLetra);
             tvfecEmisionLetra =itemView.findViewById(R.id.tvfecEmisionLetra);
             tvfecVencimientoLetra =itemView.findViewById(R.id.tvfecVencimientoLetra);
             btnEditar =itemView.findViewById(R.id.btnEditar);
