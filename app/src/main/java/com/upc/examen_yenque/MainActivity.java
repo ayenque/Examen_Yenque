@@ -83,18 +83,18 @@ public class MainActivity extends AppCompatActivity {
         txtTitulo = findViewById(R.id.txtTitulo);
 
         btnBoton.setOnClickListener(v->{
-            capturarDatos();
-            daoLetra.abrirBD();
-            String respuesta = "";
-            if(tipoRegistro){
-                respuesta = daoLetra.registrarLetra(letra);
+            if(validarCampos()){
+                capturarDatos();
+                daoLetra.abrirBD();
+                String respuesta = "";
+                if(tipoRegistro){
+                    respuesta = daoLetra.registrarLetra(letra);
+                }
+                else{
+                    respuesta = daoLetra.modificarLetra(letra);
+                }
+                mostrarMensaje(tipoRegistro, respuesta);
             }
-            else{
-                respuesta = daoLetra.modificarLetra(letra);
-            }
-
-            mostrarMensaje(tipoRegistro, respuesta);
-
         });
     }
 
@@ -140,4 +140,52 @@ public class MainActivity extends AppCompatActivity {
 
         ventana.create().show();
     }
+
+    private boolean validarCampos(){
+        boolean flag = true;
+
+        String serie = txtSerie.getText().toString();
+        String correlativo = nCorrelativo.getText().toString();
+        String ruc = nRUC.getText().toString();
+        String razonSocial = txtRazonSocial.getText().toString();
+        String numUnico = txtNumeroUnico.getText().toString();
+        String fecEmision = dateFecEmision.getText().toString();
+        String fecVencimiento = dateFecVencimiento.getText().toString();
+        String comentario = txtComentario.getText().toString();
+
+        if (correlativo.equals("")){
+            nCorrelativo.setError("Dato Obligatorio");
+            flag = false;
+        }
+
+        if (ruc.equals("")){
+            nRUC.setError("El RUC es obligatorio");
+            flag = false;
+        }
+
+        if (serie.equals("")){
+            txtSerie.setError("Ingrese la serie");
+            flag = false;
+        }
+        if (razonSocial.equals("")){
+            txtRazonSocial.setError("Ingrese la razón social");
+            flag = false;
+        }
+        if (numUnico.equals("")){
+            txtNumeroUnico.setError("Ingrese el Número Único");
+            flag = false;
+        }
+        if (fecEmision.equals("")){
+            dateFecEmision.setError("Ingrese la fecha de Emisión");
+            flag = false;
+        }
+        if (fecVencimiento.equals("")){
+            dateFecVencimiento.setError("Ingrese la fecha de Vencimiento");
+            flag = false;
+        }
+
+        return flag;
+    }
+
+
 }
