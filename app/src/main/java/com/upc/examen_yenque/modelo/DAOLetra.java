@@ -65,6 +65,61 @@ public class DAOLetra {
         return  mensaje;
     }
 
+    public String modificarLetra(Letra letra){
+        String mensaje = "";
+
+        try{
+            ContentValues valores = new ContentValues();
+            valores.put("serie", letra.getSerie());
+            valores.put("correlativo", letra.getCorrelativo());
+            valores.put("ruc", letra.getRuc());
+            valores.put("razonSocial",letra.getRazonSocial());
+            valores.put("numUnico",letra.getNumUnico());
+            valores.put("fecEmision",letra.getFecEmision());
+            valores.put("fecVencimiento",letra.getFecVencimiento());
+            valores.put("comentario",letra.getComentario());
+
+            long resultado = db.update(Constantes.NOMBRE_TABLA,valores,"id="+letra.getId(),null);
+
+            if (resultado == -1) {
+                mensaje = "Error al editar!";
+            }
+            else {
+                mensaje =  "La letra se editó correctamente";
+            }
+
+
+        }catch (Exception e){
+            Log.d("==>", e.getMessage());
+            mensaje = "Error al editar!"; //los errores no se envian detallados
+
+        }
+
+        return  mensaje;
+    }
+
+    public String eliminarLetra(int id){
+        String mensaje = "";
+
+        try{
+            long resultado = db.delete(Constantes.NOMBRE_TABLA,"id="+ id,null);
+            if (resultado == -1) {
+                mensaje = "Error al eliminar!";
+            }
+            else {
+                mensaje =  "La letra se eliminó correctamente";
+            }
+
+
+        }catch (Exception e){
+            Log.d("==>", e.getMessage());
+            mensaje = "Error al eliminar!"; //los errores no se envian detallados
+
+        }
+        return  mensaje;
+    }
+
+
     public List<Letra> listarLetras()
     {
         List<Letra> listaLetras = new ArrayList<>();  //creamos un array de libros

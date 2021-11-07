@@ -1,6 +1,7 @@
 package com.upc.examen_yenque;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.upc.examen_yenque.entidades.Letra;
+import com.upc.examen_yenque.modelo.DAOLetra;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +60,42 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             intent.putExtra("comentario",listaLetras.get(position).getComentario()+"");
             context.startActivity(intent);
         });
+
+        holder.btnEliminar.setOnClickListener(v->{
+            AlertDialog.Builder ventana = new AlertDialog.Builder(context);
+            ventana.setTitle("Confirmar");
+            ventana.setMessage("¿Desea eliminar la Letra?");
+            ventana.setNegativeButton("Cancelar",null);
+
+            ventana.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    DAOLetra daoLetra = new DAOLetra(context);
+                    daoLetra.abrirBD();
+                    String respuesta = daoLetra.eliminarLetra(listaLetras.get(position).getId());
+
+                    AlertDialog.Builder ventana_delete = new AlertDialog.Builder(context);
+                    ventana_delete.setTitle("Eliminar Letra");
+                    ventana_delete.setMessage(respuesta);
+                    ventana_delete.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(context, MenuActivity.class);
+                            context.startActivity(intent);
+                        }
+                    });
+                    ventana_delete.create().show();
+
+                }
+            });
+            ventana.create().show();
+
+
+        });
+
+
+
+
     }
 
     @Override
@@ -83,4 +122,6 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
 
         }
     }
+
+
 }
