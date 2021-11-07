@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             tipoRegistro = false;
             String serie = getIntent().getStringExtra("serie");
             int correlativo = Integer.parseInt(getIntent().getStringExtra("correlativo"));
-            int ruc = Integer.parseInt(getIntent().getStringExtra("ruc"));
+            String ruc = getIntent().getStringExtra("ruc");
             String razonSocial = getIntent().getStringExtra("razonSocial");
             String numUnico = getIntent().getStringExtra("numUnico");
             String fecEmision = getIntent().getStringExtra("fecEmision");
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     private void capturarDatos(){
         String serie = txtSerie.getText().toString();
         int correlativo = Integer.parseInt(nCorrelativo.getText().toString());
-        int ruc = Integer.parseInt(nRUC.getText().toString());
+        String ruc = nRUC.getText().toString();
         String razonSocial = txtRazonSocial.getText().toString();
         String numUnico = txtNumeroUnico.getText().toString();
         String fecEmision = dateFecEmision.getText().toString();
@@ -161,6 +161,11 @@ public class MainActivity extends AppCompatActivity {
         if (ruc.equals("")){
             nRUC.setError("El RUC es obligatorio");
             flag = false;
+        }else{
+            if (ruc.length()<8){
+                nRUC.setError("El RUC debe tener 8 caracteres como mínimo");
+                flag = false;
+            }
         }
 
         if (serie.equals("")){

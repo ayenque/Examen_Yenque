@@ -7,14 +7,14 @@ public class Letra {
     private int id;
     private String serie;
     private int correlativo;
-    private int ruc;
+    private String ruc;
     private String razonSocial;
     private String numUnico;
     private String fecEmision;
     private String fecVencimiento;
     private String comentario;
 
-    public Letra(String serie, int correlativo, int ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
+    public Letra(String serie, int correlativo, String ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
         this.serie = serie;
         this.correlativo = correlativo;
         this.ruc = ruc;
@@ -25,7 +25,7 @@ public class Letra {
         this.comentario = comentario;
     }
 
-    public Letra(int id, String serie, int correlativo, int ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
+    public Letra(int id, String serie, int correlativo, String ruc, String razonSocial, String numUnico, String fecEmision, String fecVencimiento, String comentario) {
         this.id = id;
         this.serie = serie;
         this.correlativo = correlativo;
@@ -61,11 +61,11 @@ public class Letra {
         this.correlativo = correlativo;
     }
 
-    public int getRuc() {
+    public String getRuc() {
         return ruc;
     }
 
-    public void setRuc(int ruc) {
+    public void setRuc(String ruc) {
         this.ruc = ruc;
     }
 

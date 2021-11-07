@@ -132,7 +132,7 @@ public class DAOLetra {
                         c.getInt(0),
                         c.getString(1),
                         c.getInt(2),
-                        c.getInt(3),
+                        c.getString(3),
                         c.getString(4),
                         c.getString(5),
                         c.getString(6),
